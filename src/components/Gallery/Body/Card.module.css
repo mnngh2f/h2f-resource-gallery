@@ -140,6 +140,10 @@
 
 /* Mobile: Hide overlay, rely on modal */
 @media (max-width: 767px) {
+  .card {
+    scale: 0.5;
+  }
+
   .overlay {
     display: none;
   }

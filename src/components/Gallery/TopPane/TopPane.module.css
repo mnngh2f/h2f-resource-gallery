@@ -66,6 +66,7 @@
 @media (min-width: 768px) {
   .topPane {
     padding: var(--spacing-md) var(--spacing-lg);
+    scale: 0.5;
   }
 
   .filterControls {

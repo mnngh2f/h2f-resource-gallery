@@ -85,3 +85,10 @@
 .hidden {
   display: none;
 }
+
+/* Desktop: Show all filters */
+@media (min-width: 768px) {
+  .navigation {
+    scale: 0.5
+  }
+}
