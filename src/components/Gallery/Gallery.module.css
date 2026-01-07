@@ -1,0 +1,63 @@
+/* Gallery Container Styles */
+
+.gallery {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  width: 100%;
+  overflow: hidden;
+  background: var(--color-bg);
+}
+
+/* Top Pane - Filters */
+.topPane {
+  flex-shrink: 0;
+  border-bottom: 1px solid var(--color-border);
+}
+
+/* Body - Card Carousel */
+.body {
+  flex: 1;
+  min-height: 0;
+  overflow: hidden;
+}
+
+/* Bottom Pane - Navigation */
+.bottomPane {
+  flex-shrink: 0;
+  border-top: 1px solid var(--color-border);
+  background: var(--color-bg);
+}
+
+/* Loading State */
+.loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  color: var(--color-text-secondary);
+  font-size: var(--font-lg);
+}
+
+/* Error State */
+.error {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  padding: var(--spacing-lg);
+  text-align: center;
+}
+
+.errorTitle {
+  color: var(--color-physical-primary);
+  font-size: var(--font-xl);
+  font-weight: 600;
+  margin-bottom: var(--spacing-sm);
+}
+
+.errorMessage {
+  color: var(--color-text-secondary);
+  font-size: var(--font-base);
+}

@@ -1,0 +1,150 @@
+/* Card Component Styles */
+
+.card {
+  position: relative;
+  background: var(--color-bg);
+  border-radius: var(--radius-md);
+  box-shadow: 0 2px 8px var(--color-card-shadow);
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  min-height: 180px;
+}
+
+.card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px var(--color-card-shadow);
+}
+
+.card:focus-visible {
+  outline: 2px solid var(--color-border-focus);
+  outline-offset: 2px;
+}
+
+/* Domain Banner */
+.banner {
+  position: relative;
+  padding: var(--spacing-sm) var(--spacing-md);
+  color: white;
+  font-weight: 600;
+  font-size: var(--font-sm);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.bannerTriangle {
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 0 24px 100% 0;
+  border-color: transparent;
+}
+
+/* Badge (Read Watch Time) */
+.badge {
+  position: absolute;
+  top: calc(var(--spacing-sm) * 2 + 28px);
+  left: var(--spacing-sm);
+  background: var(--color-bg);
+  padding: var(--spacing-xs) var(--spacing-sm);
+  border-radius: var(--radius-sm);
+  font-size: var(--font-xs);
+  font-weight: 500;
+  color: var(--color-text-secondary);
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+  box-shadow: 0 1px 3px var(--color-card-shadow);
+}
+
+.badgeIcon {
+  font-size: 0.875em;
+}
+
+/* Card Content */
+.content {
+  padding: var(--spacing-md);
+  padding-top: var(--spacing-lg);
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Meta Info (Asset | Source) */
+.meta {
+  display: flex;
+  justify-content: space-between;
+  font-size: var(--font-xs);
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: var(--spacing-sm);
+}
+
+.metaItem {
+  font-weight: 500;
+}
+
+/* Title */
+.title {
+  font-size: var(--font-base);
+  font-weight: 600;
+  color: var(--color-text);
+  line-height: 1.4;
+  margin: 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* Hover Overlay (Desktop) */
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.6));
+  opacity: 0;
+  transition: opacity var(--transition-normal);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: var(--spacing-md);
+  color: white;
+}
+
+.card:hover .overlay {
+  opacity: 1;
+}
+
+.overlayTitle {
+  font-size: var(--font-lg);
+  font-weight: 600;
+  margin-bottom: var(--spacing-sm);
+}
+
+.overlayDescription {
+  font-size: var(--font-sm);
+  line-height: 1.5;
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  opacity: 0.9;
+}
+
+/* Mobile: Hide overlay, rely on modal */
+@media (max-width: 767px) {
+  .overlay {
+    display: none;
+  }
+
+  .card:hover {
+    transform: none;
+  }
+}

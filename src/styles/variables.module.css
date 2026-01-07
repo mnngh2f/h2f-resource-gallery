@@ -1,6 +1,5 @@
-/* H2F Resource Gallery - Global Styles */
+/* CSS Custom Properties for H2F Gallery */
 
-/* CSS Custom Properties */
 :root {
   /* Domain Colors - Primary */
   --color-all-primary: #F4AC32;
@@ -62,86 +61,14 @@
   --z-dropdown: 100;
   --z-modal: 1000;
 
+  /* Breakpoint (for reference in JS) */
+  --breakpoint-desktop: 768px;
+
   /* Grid */
   --grid-gap: 16px;
 }
 
-/* Reset */
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-}
-
-* {
-  margin: 0;
-}
-
-html,
-body {
-  height: 100%;
-}
-
-body {
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-  font-size: var(--font-base);
-  line-height: 1.5;
-  color: var(--color-text);
-  background-color: var(--color-bg);
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-#app {
-  height: 100%;
-}
-
-img,
-picture,
-video,
-canvas,
-svg {
-  display: block;
-  max-width: 100%;
-}
-
-input,
-button,
-textarea,
-select {
-  font: inherit;
-}
-
-p,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  overflow-wrap: break-word;
-}
-
-/* Accessibility */
-.sr-only {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  margin: -1px;
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  white-space: nowrap;
-  border-width: 0;
-}
-
-/* Focus visible for keyboard navigation */
-:focus-visible {
-  outline: 2px solid var(--color-border-focus);
-  outline-offset: 2px;
-}
-
-/* Remove focus outline for mouse users */
-:focus:not(:focus-visible) {
-  outline: none;
+/* Utility class to expose variables */
+.variables {
+  /* This class exists to ensure the module is processed */
 }

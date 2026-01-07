@@ -1,0 +1,55 @@
+/* CategorySelect Component Styles */
+
+.selectContainer {
+  position: relative;
+  min-width: 120px;
+}
+
+.select {
+  width: 100%;
+  padding: var(--spacing-sm) var(--spacing-md);
+  padding-right: calc(var(--spacing-md) + 16px);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  font-size: var(--font-sm);
+  color: var(--color-text);
+  background: var(--color-bg);
+  cursor: pointer;
+  appearance: none;
+  transition: border-color var(--transition-fast);
+}
+
+.select:focus {
+  border-color: var(--color-border-focus);
+}
+
+.selectActive {
+  border-color: var(--color-border-focus);
+  background: rgba(0, 102, 204, 0.05);
+}
+
+.selectIcon {
+  position: absolute;
+  right: var(--spacing-sm);
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none;
+  color: var(--color-text-muted);
+  font-size: var(--font-xs);
+}
+
+/* Label */
+.label {
+  display: block;
+  font-size: var(--font-xs);
+  color: var(--color-text-muted);
+  margin-bottom: var(--spacing-xs);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+@media (min-width: 768px) {
+  .label {
+    display: none;
+  }
+}

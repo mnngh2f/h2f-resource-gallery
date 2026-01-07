@@ -1,0 +1,87 @@
+/* Navigation Component Styles */
+
+.navigation {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-md);
+  padding: var(--spacing-md);
+}
+
+/* Arrow Buttons */
+.arrowButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border: none;
+  border-radius: var(--radius-full);
+  background: var(--color-bg-secondary);
+  color: var(--color-text);
+  cursor: pointer;
+  transition: background var(--transition-fast), transform var(--transition-fast);
+  font-size: var(--font-lg);
+}
+
+.arrowButton:hover:not(:disabled) {
+  background: var(--color-border);
+  transform: scale(1.05);
+}
+
+.arrowButton:active:not(:disabled) {
+  transform: scale(0.95);
+}
+
+.arrowButton:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.arrowButton:focus-visible {
+  outline: 2px solid var(--color-border-focus);
+  outline-offset: 2px;
+}
+
+/* Dots Container */
+.dots {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+}
+
+/* Dot Button */
+.dot {
+  width: 10px;
+  height: 10px;
+  border: none;
+  border-radius: var(--radius-full);
+  background: var(--color-border);
+  cursor: pointer;
+  padding: 0;
+  transition: background var(--transition-fast), transform var(--transition-fast);
+}
+
+.dot:hover {
+  background: var(--color-text-muted);
+  transform: scale(1.2);
+}
+
+.dot:focus-visible {
+  outline: 2px solid var(--color-border-focus);
+  outline-offset: 2px;
+}
+
+.dotActive {
+  background: var(--color-text);
+  transform: scale(1.2);
+}
+
+.dotActive:hover {
+  background: var(--color-text);
+}
+
+/* Hide navigation if only one page */
+.hidden {
+  display: none;
+}

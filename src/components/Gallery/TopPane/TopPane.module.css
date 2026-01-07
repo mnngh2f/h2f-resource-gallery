@@ -1,0 +1,96 @@
+/* TopPane Component Styles */
+
+.topPane {
+  padding: var(--spacing-md);
+}
+
+/* Search Row */
+.searchRow {
+  margin-bottom: var(--spacing-md);
+}
+
+/* Filter Controls */
+.filterControls {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+}
+
+/* Filter Row (dropdowns) */
+.filterRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-sm);
+}
+
+/* Mobile: Collapsible filter panel */
+.filterPanel {
+  display: none;
+}
+
+.filterPanelOpen {
+  display: block;
+}
+
+/* Mobile toggle button */
+.toggleButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-sm);
+  width: 100%;
+  padding: var(--spacing-sm) var(--spacing-md);
+  background: var(--color-bg-secondary);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  color: var(--color-text);
+  cursor: pointer;
+  font-size: var(--font-sm);
+  font-weight: 500;
+  transition: background var(--transition-fast);
+}
+
+.toggleButton:hover {
+  background: var(--color-border);
+}
+
+.toggleIcon {
+  transition: transform var(--transition-fast);
+}
+
+.toggleIconOpen {
+  transform: rotate(180deg);
+}
+
+/* Desktop: Show all filters */
+@media (min-width: 768px) {
+  .topPane {
+    padding: var(--spacing-md) var(--spacing-lg);
+  }
+
+  .filterControls {
+    flex-direction: row;
+    align-items: flex-start;
+    flex-wrap: wrap;
+  }
+
+  .searchRow {
+    margin-bottom: 0;
+    flex: 1;
+    min-width: 200px;
+    max-width: 300px;
+  }
+
+  .filterPanel {
+    display: flex;
+    flex: 1;
+  }
+
+  .filterRow {
+    flex-wrap: nowrap;
+  }
+
+  .toggleButton {
+    display: none;
+  }
+}
