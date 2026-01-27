@@ -1,8 +1,8 @@
 /* SearchInput Component Styles */
 
 .searchContainer {
+  flex: 1 0 25%;
   position: relative;
-  width: 100%;
 }
 
 .searchIcon {
@@ -12,16 +12,19 @@
   transform: translateY(-50%);
   color: var(--color-text-muted);
   pointer-events: none;
-  font-size: var(--font-base);
+  font-size: var(--dyn-font-sm);
+  line-height: 1;
 }
 
 .searchInput {
+  display: block;
   width: 100%;
+  height: 32px;
   padding: var(--spacing-sm) var(--spacing-md);
   padding-left: calc(var(--spacing-sm) + 24px);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-md);
-  font-size: var(--font-base);
+  font-size: var(--dyn-font-sm);
   color: var(--color-text);
   background: var(--color-bg);
   transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
@@ -61,4 +64,13 @@
 
 .clearButtonHidden {
   display: none;
+}
+
+/* Desktop: Constrain search width when in filter row */
+@media (min-width: 768px) {
+  .searchContainer {
+    flex: 1;
+    min-width: 200px;
+    max-width: 300px;
+  }
 }

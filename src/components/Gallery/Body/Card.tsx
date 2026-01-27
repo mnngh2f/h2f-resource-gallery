@@ -2,6 +2,7 @@
 
 import type { ResourceItem } from '../../../types/gallery.types';
 import { getDomainColors } from '../../../utils/domainColors';
+import { Badge } from '../../common/Badge';
 import styles from './Card.module.css';
 
 interface CardProps {
@@ -40,24 +41,21 @@ export const Card = ({ item, onClick }: CardProps) => {
         />
       </div>
 
-      {/* Read Watch Time Badge */}
-      {item.readWatchTime && (
-        <div className={styles.badge}>
-          <span className={styles.badgeIcon}>⏱</span>
-          {item.readWatchTime}
-        </div>
-      )}
-
       {/* Card Content */}
       <div className={styles.content}>
         {/* Meta Info */}
         <div className={styles.meta}>
-          <span className={styles.metaItem}>{item.asset}</span>
-          <span className={styles.metaItem}>{item.source}</span>
+          <Badge text={item.asset} />
+          <Badge text={item.source} />
         </div>
 
         {/* Title */}
         <h3 className={styles.title}>{item.title}</h3>
+
+        {/* Read Watch Time Badge */}
+        {item.readWatchTime && (
+          <Badge icon="⏱" text={item.readWatchTime} className={styles.timeBadge} />
+        )}
       </div>
 
       {/* Hover Overlay (Desktop only via CSS) */}

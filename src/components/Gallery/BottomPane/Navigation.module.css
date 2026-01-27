@@ -4,8 +4,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: var(--spacing-md);
-  padding: var(--spacing-md);
+  gap: var(--spacing-xs);
+  padding: var(--spacing-xs);
 }
 
 /* Arrow Buttons */
@@ -13,15 +13,15 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 40px;
-  height: 40px;
+  width: 24px;
+  height: 24px;
   border: none;
   border-radius: var(--radius-full);
   background: var(--color-bg-secondary);
   color: var(--color-text);
   cursor: pointer;
   transition: background var(--transition-fast), transform var(--transition-fast);
-  font-size: var(--font-lg);
+  font-size: var(--dyn-font-md);
 }
 
 .arrowButton:hover:not(:disabled) {
@@ -45,7 +45,7 @@
 
 /* Dots Container */
 .dots {
-  display: flex;
+  display: none;
   align-items: center;
   gap: var(--spacing-sm);
 }
@@ -86,9 +86,19 @@
   display: none;
 }
 
-/* Desktop: Show all filters */
+/* Desktop */
 @media (min-width: 768px) {
   .navigation {
-    scale: 0.5
+    gap: var(--spacing-sm);
+    padding: var(--spacing-sm);
+  }
+
+  .arrowButton {
+    width: 32px;
+    height: 32px;
+  }
+
+  .dots {
+    display: flex;
   }
 }

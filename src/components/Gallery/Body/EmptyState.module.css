@@ -17,14 +17,14 @@
 }
 
 .title {
-  font-size: var(--font-xl);
+  font-size: var(--dyn-font-xl);
   font-weight: 600;
   color: var(--color-text);
   margin-bottom: var(--spacing-sm);
 }
 
 .message {
-  font-size: var(--font-base);
+  font-size: var(--dyn-font-base);
   color: var(--color-text-secondary);
   margin-bottom: var(--spacing-lg);
   max-width: 300px;
@@ -37,7 +37,7 @@
   background: var(--color-bg);
   color: var(--color-text);
   cursor: pointer;
-  font-size: var(--font-sm);
+  font-size: var(--dyn-font-sm);
   font-weight: 500;
   transition: background var(--transition-fast);
 }

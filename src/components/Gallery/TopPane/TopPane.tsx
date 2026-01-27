@@ -39,10 +39,6 @@ export const TopPane = () => {
   return (
     <div className={styles.topPane}>
       <div className={styles.filterControls}>
-        {/* Search - always visible */}
-        <div className={styles.searchRow}>
-          <SearchInput />
-        </div>
 
         {/* Mobile toggle button */}
         <FilterToggle
@@ -56,7 +52,10 @@ export const TopPane = () => {
           id="filter-panel"
           className={`${styles.filterPanel} ${isFilterOpen ? styles.filterPanelOpen : ''}`}
         >
+
           <div className={styles.filterRow}>
+            <SearchInput />
+
             <CategorySelect
               label="Domain"
               value={filters.domain}

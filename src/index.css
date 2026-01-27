@@ -32,11 +32,11 @@
   --color-card-shadow: rgba(0, 0, 0, 0.1);
 
   /* Spacing */
-  --spacing-xs: 4px;
-  --spacing-sm: 8px;
-  --spacing-md: 16px;
-  --spacing-lg: 24px;
-  --spacing-xl: 32px;
+  --spacing-xs: 1px;
+  --spacing-sm: 2px;
+  --spacing-md: 4px;
+  --spacing-lg: 8px;
+  --spacing-xl: 16px;
 
   /* Border Radius */
   --radius-sm: 4px;
@@ -52,6 +52,20 @@
   --font-xl: 1.25rem;
   --font-2xl: 1.5rem;
 
+  /* Dynamic Font Sizes - Fluid scaling across all viewports */
+  /* Using vw for fluid scaling with px min/max bounds */
+  --dyn-font-banner: clamp(8px, 2vw, 16px);
+  --dyn-font-meta: clamp(6px, 2vw, 12px);
+  --dyn-font-title: clamp(10px, 2vw, 16px);
+
+  --dyn-font-xl: clamp(16px, 2.5vw, 24px);
+  --dyn-font-lg: clamp(14px, 2vw, 20px);
+  --dyn-font-base: clamp(12px, 1.5vw, 16px);
+  --dyn-font-md: clamp(10px, 1.25vw, 15px);
+  --dyn-font-sm: clamp(8px, 1vw, 14px);
+  --dyn-font-xs: clamp(6px, 0.75vw, 12px);
+
+
   /* Transitions */
   --transition-fast: 150ms ease;
   --transition-normal: 250ms ease;
@@ -63,7 +77,8 @@
   --z-modal: 1000;
 
   /* Grid */
-  --grid-gap: 16px;
+  --grid-gap-mobile: 8px;
+  --grid-gap-desktop: 16px;
 }
 
 /* Reset */

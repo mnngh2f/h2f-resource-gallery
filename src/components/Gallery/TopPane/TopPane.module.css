@@ -1,26 +1,22 @@
 /* TopPane Component Styles */
 
 .topPane {
-  padding: var(--spacing-md);
+  padding: var(--spacing-xs);
 }
 
-/* Search Row */
-.searchRow {
-  margin-bottom: var(--spacing-md);
-}
 
 /* Filter Controls */
 .filterControls {
   display: flex;
   flex-direction: column;
-  gap: var(--spacing-md);
+  gap: var(--spacing-xs);
 }
 
 /* Filter Row (dropdowns) */
 .filterRow {
   display: flex;
   flex-wrap: wrap;
-  gap: var(--spacing-sm);
+  gap: var(--spacing-xs);
 }
 
 /* Mobile: Collapsible filter panel */
@@ -29,7 +25,8 @@
 }
 
 .filterPanelOpen {
-  display: block;
+  display: flex;
+  flex-wrap: wrap;
 }
 
 /* Mobile toggle button */
@@ -37,15 +34,15 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: var(--spacing-sm);
+  gap: var(--spacing-);
   width: 100%;
-  padding: var(--spacing-sm) var(--spacing-md);
+  padding: var(--spacing-xs) var(--spacing-xs);
   background: var(--color-bg-secondary);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-md);
   color: var(--color-text);
   cursor: pointer;
-  font-size: var(--font-sm);
+  font-size: var(--dyn-font-md);
   font-weight: 500;
   transition: background var(--transition-fast);
 }
@@ -66,29 +63,19 @@
 @media (min-width: 768px) {
   .topPane {
     padding: var(--spacing-md) var(--spacing-lg);
-    scale: 0.5;
+    scale: 1.0;
   }
 
   .filterControls {
     flex-direction: row;
     align-items: flex-start;
     flex-wrap: wrap;
-  }
-
-  .searchRow {
-    margin-bottom: 0;
-    flex: 1;
-    min-width: 200px;
-    max-width: 300px;
-  }
-
-  .filterPanel {
-    display: flex;
-    flex: 1;
+    gap: var(--spacing-md)
   }
 
   .filterRow {
-    flex-wrap: nowrap;
+    flex-wrap: wrap;
+    gap: var(--spacing-md);
   }
 
   .toggleButton {
