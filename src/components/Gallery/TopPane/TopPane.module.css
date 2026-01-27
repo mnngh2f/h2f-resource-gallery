@@ -1,33 +1,24 @@
 /* TopPane Component Styles */
 
 .topPane {
-  padding: var(--spacing-xs);
+  padding: var(--spacing-md);
 }
-
-
-/* Filter Controls */
-.filterControls {
-  display: flex;
-  flex-direction: column;
-  gap: var(--spacing-xs);
-}
-
-/* Filter Row (dropdowns) */
-.filterRow {
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--spacing-xs);
-}
-
 /* Mobile: Collapsible filter panel */
 .filterPanel {
   display: none;
 }
 
 .filterPanelOpen {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
 }
+
+/* Grid Children (dropdowns) */
+.filterRow {
+  display: grid;
+  gap: var(--spacing-xs);
+  grid-template-columns: repeat(auto-fill, minmax(var(--dyn-grid-width-mobile),1fr));
+}
+
 
 /* Mobile toggle button */
 .toggleButton {
@@ -63,21 +54,17 @@
 @media (min-width: 768px) {
   .topPane {
     padding: var(--spacing-md) var(--spacing-lg);
-    scale: 1.0;
   }
-
-  .filterControls {
-    flex-direction: row;
-    align-items: flex-start;
-    flex-wrap: wrap;
-    gap: var(--spacing-md)
+  /* Grid container */
+  .filterPanel {
+    display: grid;
   }
-
-  .filterRow {
-    flex-wrap: wrap;
-    gap: var(--spacing-md);
-  }
-
+  /* Grid Children (dropdowns) */
+.filterRow {
+  display: grid;
+  gap: var(--spacing-md);
+  grid-template-columns: repeat(auto-fill, minmax(var(--dyn-grid-width-desktop),1fr));
+}
   .toggleButton {
     display: none;
   }

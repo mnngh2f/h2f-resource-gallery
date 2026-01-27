@@ -65,6 +65,8 @@
   --dyn-font-sm: clamp(8px, 1vw, 14px);
   --dyn-font-xs: clamp(6px, 0.75vw, 12px);
 
+  --dyn-grid-width-mobile: clamp(64px,50%, 128px);
+  --dyn-grid-width-desktop: clamp(64px,100%, 256px);
 
   /* Transitions */
   --transition-fast: 150ms ease;

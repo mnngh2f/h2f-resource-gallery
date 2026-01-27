@@ -1,9 +1,5 @@
 /* CategorySelect Component Styles */
 
-.selectContainer {
-  flex: 1 0 25%;
-  position: relative;
-}
 
 .select {
   width: 100%;

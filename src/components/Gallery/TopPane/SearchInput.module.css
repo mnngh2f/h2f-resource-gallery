@@ -1,7 +1,6 @@
 /* SearchInput Component Styles */
 
 .searchContainer {
-  flex: 1 0 25%;
   position: relative;
 }
 
@@ -17,7 +16,7 @@
 }
 
 .searchInput {
-  display: block;
+  display: inline-block;
   width: 100%;
   height: 32px;
   padding: var(--spacing-sm) var(--spacing-md);
@@ -64,13 +63,4 @@
 
 .clearButtonHidden {
   display: none;
-}
-
-/* Desktop: Constrain search width when in filter row */
-@media (min-width: 768px) {
-  .searchContainer {
-    flex: 1;
-    min-width: 200px;
-    max-width: 300px;
-  }
 }
