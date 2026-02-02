@@ -34,10 +34,10 @@ export const Card = ({ item, onClick }: CardProps) => {
         className={styles.banner}
         style={{ backgroundColor: colors.primary }}
       >
-        {item.domain}
+        <span className={styles.bannerText}>{item.domain}</span>
         <div
           className={styles.bannerTriangle}
-          style={{ borderRightColor: colors.secondary }}
+          style={{ borderleftColor: colors.secondary, borderTopColor: colors.secondary}}
         />
       </div>
 

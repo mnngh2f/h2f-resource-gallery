@@ -4,28 +4,28 @@ import type { DomainColors } from '../types/gallery.types';
 
 export const DOMAIN_COLORS: Record<string, DomainColors> = {
   All: {
-    primary: '#F4AC32',
-    secondary: '#F5B447',
+    primary: 'gold',
+    secondary: 'orange',
   },
   Mental: {
-    primary: '#00CFCF',
-    secondary: '#00D8D8',
+    primary: 'slategray',
+    secondary: 'darkslategray',
   },
   Nutritional: {
-    primary: '#6AA84F',
-    secondary: '#93C47D',
+    primary: 'limegreen',
+    secondary: 'green',
   },
   Physical: {
-    primary: '#FF2153',
-    secondary: '#FF597E',
+    primary: 'red',
+    secondary: 'firebrick',
   },
   Sleep: {
-    primary: '#0DA0FF',
-    secondary: '#26AAFF',
+    primary: 'deepskyblue',
+    secondary: 'dodgerblue',
   },
   Spiritual: {
-    primary: '#674EA7',
-    secondary: '#8E7CC3',
+    primary: 'slateblue',
+    secondary: 'indigo',
   },
 };
 

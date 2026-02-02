@@ -28,6 +28,7 @@
   scroll-snap-align: start;
   scroll-snap-stop: always;
   padding: var(--spacing-md);
+  padding: calc(var(--spacing-md) + 1rem);  /* Extra padding for hover scale */
   box-sizing: border-box;
 }
 
