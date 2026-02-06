@@ -55,6 +55,7 @@
   /* Dynamic Font Sizes - Fluid scaling across all viewports */
   /* Using vw for fluid scaling with px min/max bounds */
   --dyn-font-banner: clamp(8px, 2vw, 16px);
+  --dyn-banner-height: clamp(16px, 3vw, 24px);
   --dyn-font-meta: clamp(6px, 2vw, 12px);
   --dyn-font-title: clamp(10px, 2vw, 16px);
 

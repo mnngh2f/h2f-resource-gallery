@@ -19,3 +19,9 @@
 .icon {
   font-size: var(--dyn-font-md);
 }
+
+.icon img {
+  width: 1em;
+  height: 1em;
+  vertical-align: middle;
+}

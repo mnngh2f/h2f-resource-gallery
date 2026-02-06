@@ -43,7 +43,7 @@
 /* Mobile: 2x2 grid (base) */
 .grid {
   grid-template-columns: repeat(2, 1fr);
-  grid-template-rows: repeat(2, 1fr);
+  grid-template-rows: repeat(3, 1fr);
 }
 
 /* Desktop: 4x4 grid */

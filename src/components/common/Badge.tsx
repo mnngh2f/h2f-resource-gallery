@@ -1,10 +1,11 @@
 // Badge Component - Reusable badge for displaying labels and tags
 
+import type { ComponentChild } from 'preact';
 import styles from './Badge.module.css';
 
 interface BadgeProps {
   text: string;
-  icon?: string;
+  icon?: ComponentChild;
   className?: string;
 }
 

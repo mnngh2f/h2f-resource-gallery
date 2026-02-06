@@ -4,8 +4,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: var(--spacing-xs);
-  padding: var(--spacing-xs);
+  gap: var(--spacing-sm);
+  padding: var(--spacing-sm);
 }
 
 /* Arrow Buttons */
@@ -13,10 +13,10 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 24px;
-  height: 24px;
+  width: 32px;
+  height: 32px;
   border: none;
-  border-radius: var(--radius-full);
+  border-radius: 100vw;
   background: var(--color-bg-secondary);
   color: var(--color-text);
   cursor: pointer;
@@ -45,7 +45,7 @@
 
 /* Dots Container */
 .dots {
-  display: none;
+  display: flex;
   align-items: center;
   gap: var(--spacing-sm);
 }
@@ -79,11 +79,6 @@
 
 .dotActive:hover {
   background: var(--color-text);
-}
-
-/* Hide navigation if only one page */
-.hidden {
-  display: none;
 }
 
 /* Desktop */

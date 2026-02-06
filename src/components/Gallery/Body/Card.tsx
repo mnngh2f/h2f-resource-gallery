@@ -3,7 +3,29 @@
 import type { ResourceItem } from '../../../types/gallery.types';
 import { getDomainColors } from '../../../utils/domainColors';
 import { Badge } from '../../common/Badge';
+import h2fIcon from '../../../assets/h2f-icon.svg';
+import outsourceIcon from '../../../assets/outsourcing-icon.svg';
+import allIcon from '../../../assets/all.svg';
+import mentalIcon from '../../../assets/mental.svg';
+import nutritionIcon from '../../../assets/nutrition.svg';
+import physicalIcon from '../../../assets/physical.svg';
+import sleepIcon from '../../../assets/sleep.svg';
+import spiritualIcon from '../../../assets/spiritual.svg';
 import styles from './Card.module.css';
+
+const sourceIcons: Record<string, string> = {
+  'H2F': h2fIcon,
+  'Outsource': outsourceIcon,
+};
+
+const domainIcons: Record<string, string> = {
+  'All': allIcon,
+  'Mental': mentalIcon,
+  'Nutritional': nutritionIcon,
+  'Physical': physicalIcon,
+  'Sleep': sleepIcon,
+  'Spiritual': spiritualIcon,
+};
 
 interface CardProps {
   item: ResourceItem;
@@ -35,6 +57,9 @@ export const Card = ({ item, onClick }: CardProps) => {
         style={{ backgroundColor: colors.primary }}
       >
         <span className={styles.bannerText}>{item.domain}</span>
+        {domainIcons[item.domain] && (
+          <img src={domainIcons[item.domain]} alt="" className={styles.bannerIcon} />
+        )}
         <div
           className={styles.bannerTriangle}
           style={{ borderleftColor: colors.secondary, borderTopColor: colors.secondary}}
@@ -46,7 +71,7 @@ export const Card = ({ item, onClick }: CardProps) => {
         {/* Meta Info */}
         <div className={styles.meta}>
           <Badge text={item.asset} />
-          <Badge text={item.source} />
+          <Badge text={item.source} icon={sourceIcons[item.source] && <img src={sourceIcons[item.source]} alt="" />} />
         </div>
 
         {/* Title */}

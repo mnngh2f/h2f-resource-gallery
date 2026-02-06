@@ -10,7 +10,7 @@ export const CONFIG = {
 
   // Grid layout
   MOBILE_COLUMNS: 2,
-  MOBILE_ROWS: 2,
+  MOBILE_ROWS: 3,
   DESKTOP_COLUMNS: 4,
   DESKTOP_ROWS: 4,
 
