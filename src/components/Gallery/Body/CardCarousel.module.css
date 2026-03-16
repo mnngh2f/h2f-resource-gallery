@@ -2,6 +2,7 @@
 
 .carousel {
   width: 95%;
+  height: 100%;
   overflow-x: auto;
   overflow-y: hidden;
   scroll-snap-type: x mandatory;
@@ -20,6 +21,7 @@
 .carouselInner {
   display: flex;
   min-width: 100%;
+  height: 100%;
 }
 
 /* Each page is a snap point */
@@ -30,29 +32,17 @@
   padding: var(--spacing-md);
   padding: calc(var(--spacing-md) + 1rem);  /* Extra padding for hover scale */
   box-sizing: border-box;
-}
-
-/* Grid layout for cards */
-.grid {
-  display: grid;
-  gap: var(--grid-gap-mobile);
-  width: 100%;
   height: 100%;
 }
 
-/* Mobile: 2x2 grid (base) */
+/* Grid layout for cards — driven by CSS custom properties from useContainerGrid */
 .grid {
-  grid-template-columns: repeat(2, 1fr);
-  grid-template-rows: repeat(3, 1fr);
-}
-
-/* Desktop: 4x4 grid */
-@media (min-width: 768px) {
-  .grid {
-    grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: repeat(4, 1fr);
-    gap: var(--grid-gap-desktop);
-  }
+  display: grid;
+  grid-template-columns: repeat(var(--grid-cols, 2), 1fr);
+  grid-template-rows: repeat(var(--grid-rows, 3), 1fr);
+  gap: var(--grid-gap, 8px);
+  width: 100%;
+  height: 100%;
 }
 
 /* Empty grid cell placeholder */

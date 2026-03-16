@@ -95,6 +95,7 @@ export interface GalleryContextValue {
   goToPage: (page: number) => void;
   nextPage: () => void;
   prevPage: () => void;
+  setItemsPerPage: (n: number) => void;
 
   // Modal
   modal: ModalState;

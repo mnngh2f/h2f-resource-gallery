@@ -1,9 +1,8 @@
 // Gallery Context - Central state management
 
 import { createContext } from 'preact';
-import { useContext, useState, useEffect, useMemo, useCallback } from 'preact/hooks';
+import { useContext, useState, useEffect, useRef, useMemo, useCallback } from 'preact/hooks';
 import type { ComponentChildren } from 'preact';
-import { CONFIG } from '../config';
 import { fetchSheetData, extractFilterOptions } from '../services/sheets';
 import { filterItems, calculatePagination, getPageItems } from '../utils/filterUtils';
 import { parseUrlParams, getDefaultFilterState } from '../utils/urlParams';
@@ -31,10 +30,11 @@ const defaultContextValue: GalleryContextValue = {
   setReadWatchTime: () => {},
   setFeatures: () => {},
   clearFilters: () => {},
-  carousel: { currentPage: 0, totalPages: 1, itemsPerPage: 4 },
+  carousel: { currentPage: 0, totalPages: 1, itemsPerPage: 6 },
   goToPage: () => {},
   nextPage: () => {},
   prevPage: () => {},
+  setItemsPerPage: () => {},
   modal: { isOpen: false, selectedItem: null },
   openModal: () => {},
   closeModal: () => {},
@@ -50,15 +50,6 @@ export const useGallery = (): GalleryContextValue => {
     throw new Error('useGallery must be used within a GalleryProvider');
   }
   return context;
-};
-
-// Calculate items per page based on viewport
-const getItemsPerPage = (): number => {
-  if (typeof window === 'undefined') return CONFIG.MOBILE_COLUMNS * CONFIG.MOBILE_ROWS;
-  const isDesktop = window.innerWidth >= CONFIG.BREAKPOINT_DESKTOP;
-  return isDesktop
-    ? CONFIG.DESKTOP_COLUMNS * CONFIG.DESKTOP_ROWS
-    : CONFIG.MOBILE_COLUMNS * CONFIG.MOBILE_ROWS;
 };
 
 interface GalleryProviderProps {
@@ -91,9 +82,9 @@ export const GalleryProvider = ({ children }: GalleryProviderProps) => {
     features: embedParams.features,
   });
 
-  // Carousel state
+  // Carousel state (itemsPerPage is set by CardCarousel via useContainerGrid)
   const [currentPage, setCurrentPage] = useState(0);
-  const [itemsPerPage, setItemsPerPage] = useState(getItemsPerPage);
+  const [itemsPerPage, setItemsPerPage] = useState(6);
 
   // Modal state
   const [modal, setModal] = useState<ModalState>({
@@ -119,15 +110,6 @@ export const GalleryProvider = ({ children }: GalleryProviderProps) => {
     loadData();
   }, []);
 
-  // Handle viewport resize
-  useEffect(() => {
-    const handleResize = () => {
-      setItemsPerPage(getItemsPerPage());
-    };
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
-  }, []);
-
   // Filter items (memoized)
   const filteredItems = useMemo(() => {
     return filterItems(items, filters);
@@ -143,12 +125,19 @@ export const GalleryProvider = ({ children }: GalleryProviderProps) => {
     setCurrentPage(0);
   }, [filters]);
 
-  // Clamp current page when totalPages changes
+  // Preserve approximate scroll position when itemsPerPage changes (e.g. container resize)
+  const prevItemsPerPage = useRef(itemsPerPage);
   useEffect(() => {
-    if (currentPage >= totalPages) {
+    if (prevItemsPerPage.current !== itemsPerPage) {
+      const firstVisibleIndex = currentPage * prevItemsPerPage.current;
+      const newPage = Math.floor(firstVisibleIndex / itemsPerPage);
+      const maxPage = Math.max(0, Math.ceil(filteredItems.length / itemsPerPage) - 1);
+      setCurrentPage(Math.max(0, Math.min(newPage, maxPage)));
+      prevItemsPerPage.current = itemsPerPage;
+    } else if (currentPage >= totalPages) {
       setCurrentPage(Math.max(0, totalPages - 1));
     }
-  }, [currentPage, totalPages]);
+  }, [currentPage, totalPages, itemsPerPage, filteredItems.length]);
 
   // Get items for current page
   const pageItems = useMemo(() => {
@@ -230,6 +219,7 @@ export const GalleryProvider = ({ children }: GalleryProviderProps) => {
     goToPage,
     nextPage,
     prevPage,
+    setItemsPerPage,
     modal,
     openModal,
     closeModal,

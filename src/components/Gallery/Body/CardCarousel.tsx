@@ -2,15 +2,28 @@
 
 import { useRef, useEffect, useMemo } from 'preact/hooks';
 import { useGallery } from '../../../context/GalleryContext';
+import { useContainerGrid } from '../../../hooks/useContainerGrid';
+import { CONFIG } from '../../../config';
 import { Card } from './Card';
 import { EmptyState } from './EmptyState';
 import styles from './CardCarousel.module.css';
 
 export const CardCarousel = () => {
-  const { filteredItems, carousel, goToPage, openModal } = useGallery();
+  const { filteredItems, carousel, goToPage, openModal, setItemsPerPage } = useGallery();
   const { currentPage, totalPages, itemsPerPage } = carousel;
   const containerRef = useRef<HTMLDivElement>(null);
   const isScrolling = useRef(false);
+
+  // Dynamic grid dimensions from container measurement
+  const { itemsPerPage: gridItemsPerPage } = useContainerGrid(
+    containerRef,
+    CONFIG.GRID
+  );
+
+  // Sync grid dimensions to context
+  useEffect(() => {
+    setItemsPerPage(gridItemsPerPage);
+  }, [gridItemsPerPage, setItemsPerPage]);
 
   // Group filtered items into pages
   const pages = useMemo(() => {

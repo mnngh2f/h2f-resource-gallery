@@ -5,14 +5,18 @@ export const CONFIG = {
   SHEET_ID: '14Otgm3SIWXbwSB0KpgPLtO-L8hJ6BcyjcZyZBB9K-Fk',
   TAB_NAME: 'Gallery',
 
-  // Responsive breakpoint
-  BREAKPOINT_DESKTOP: 768,
-
-  // Grid layout
-  MOBILE_COLUMNS: 2,
-  MOBILE_ROWS: 3,
-  DESKTOP_COLUMNS: 4,
-  DESKTOP_ROWS: 4,
+  // Dynamic grid configuration (container-responsive)
+  GRID: {
+    MIN_CARD_WIDTH: 140,   // px - minimum card width before reducing columns
+    MIN_CARD_HEIGHT: 120,  // px - minimum card height before reducing rows
+    MAX_COLUMNS: 6,
+    MAX_ROWS: 5,
+    MIN_COLUMNS: 1,
+    MIN_ROWS: 1,
+    GAP: 8,                // base gap in px
+    GAP_LARGE: 16,         // gap when container >= 600px wide
+    CONTAINER_GAP_BREAKPOINT: 600,
+  },
 
   // Search debounce
   SEARCH_DEBOUNCE_MS: 300,
