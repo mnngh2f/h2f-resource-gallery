@@ -87,6 +87,20 @@
   --grid-gap-desktop: 16px;
 }
 
+/* Container-aware overrides — scales with gallery container, not viewport */
+[data-gallery] {
+  --dyn-font-banner: clamp(6px, 2cqi, 16px);
+  --dyn-banner-height: clamp(12px, 3cqi, 24px);
+  --dyn-font-meta: clamp(5px, 2cqi, 12px);
+  --dyn-font-title: clamp(7px, 2cqi, 16px);
+  --dyn-font-xl: clamp(12px, 2.5cqi, 24px);
+  --dyn-font-lg: clamp(10px, 2cqi, 20px);
+  --dyn-font-base: clamp(9px, 1.5cqi, 16px);
+  --dyn-font-md: clamp(7px, 1.25cqi, 15px);
+  --dyn-font-sm: clamp(6px, 1cqi, 14px);
+  --dyn-font-xs: clamp(5px, 0.75cqi, 12px);
+}
+
 /* Reset */
 *,
 *::before,

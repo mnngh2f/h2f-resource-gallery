@@ -7,11 +7,12 @@ export const CONFIG = {
 
   // Dynamic grid configuration (container-responsive)
   GRID: {
-    MIN_CARD_WIDTH: 140,   // px - minimum card width before reducing columns
-    MIN_CARD_HEIGHT: 120,  // px - minimum card height before reducing rows
+    // Card dimensions scale with container: clamp(min, containerSize * scale, max)
+    CARD_WIDTH: { scale: 0.15, min: 60, max: 140 },
+    CARD_HEIGHT: { scale: 0.12, min: 50, max: 120 },
     MAX_COLUMNS: 6,
     MAX_ROWS: 5,
-    MIN_COLUMNS: 1,
+    MIN_COLUMNS: 2,
     MIN_ROWS: 1,
     GAP: 8,                // base gap in px
     GAP_LARGE: 16,         // gap when container >= 600px wide

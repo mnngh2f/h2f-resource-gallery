@@ -3,9 +3,15 @@
 import { useState, useEffect, useCallback, useRef } from 'preact/hooks';
 import type { RefObject } from 'preact';
 
+export interface ScaledDimension {
+  scale: number;  // fraction of container size (e.g. 0.15 = 15%)
+  min: number;    // px floor
+  max: number;    // px ceiling
+}
+
 export interface GridConfig {
-  MIN_CARD_WIDTH: number;
-  MIN_CARD_HEIGHT: number;
+  CARD_WIDTH: ScaledDimension;
+  CARD_HEIGHT: ScaledDimension;
   MAX_COLUMNS: number;
   MAX_ROWS: number;
   MIN_COLUMNS: number;
@@ -21,6 +27,11 @@ export interface GridDimensions {
   itemsPerPage: number;
 }
 
+/** JS equivalent of CSS clamp(min, value, max) */
+function clamp(min: number, value: number, max: number): number {
+  return Math.max(min, Math.min(value, max));
+}
+
 function calculateGrid(
   containerWidth: number,
   containerHeight: number,
@@ -30,24 +41,36 @@ function calculateGrid(
     ? config.GAP_LARGE
     : config.GAP;
 
-  // Account for page padding (spacing-md + 1rem ≈ 20px each side)
-  const padding = 20;
+  // Dynamic padding — scales with container, matches CSS clamp(4px, 2cqi, 20px)
+  const padding = clamp(4, containerWidth * 0.02, 20);
   const availableWidth = containerWidth - 2 * padding;
   const availableHeight = containerHeight - 2 * padding;
+
+  // Min card dimensions scale with container size
+  const minCardWidth = clamp(
+    config.CARD_WIDTH.min,
+    containerWidth * config.CARD_WIDTH.scale,
+    config.CARD_WIDTH.max
+  );
+  const minCardHeight = clamp(
+    config.CARD_HEIGHT.min,
+    containerHeight * config.CARD_HEIGHT.scale,
+    config.CARD_HEIGHT.max
+  );
 
   // Calculate how many columns fit:
   // N columns need N * minCardWidth + (N-1) * gap <= availableWidth
   // Solving: N <= (availableWidth + gap) / (minCardWidth + gap)
   let columns = Math.floor(
-    (availableWidth + gap) / (config.MIN_CARD_WIDTH + gap)
+    (availableWidth + gap) / (minCardWidth + gap)
   );
-  columns = Math.max(config.MIN_COLUMNS, Math.min(columns, config.MAX_COLUMNS));
+  columns = clamp(config.MIN_COLUMNS, columns, config.MAX_COLUMNS);
 
   // Same for rows
   let rows = Math.floor(
-    (availableHeight + gap) / (config.MIN_CARD_HEIGHT + gap)
+    (availableHeight + gap) / (minCardHeight + gap)
   );
-  rows = Math.max(config.MIN_ROWS, Math.min(rows, config.MAX_ROWS));
+  rows = clamp(config.MIN_ROWS, rows, config.MAX_ROWS);
 
   return {
     dimensions: { columns, rows, itemsPerPage: columns * rows },

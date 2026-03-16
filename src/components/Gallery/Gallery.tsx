@@ -13,7 +13,7 @@ export const Gallery = () => {
 
   if (isLoading) {
     return (
-      <div className={styles.gallery}>
+      <div className={styles.gallery} data-gallery>
         <div className={styles.loading}>
           <Spinner message="Loading resources..." />
         </div>
@@ -23,7 +23,7 @@ export const Gallery = () => {
 
   if (error) {
     return (
-      <div className={styles.gallery}>
+      <div className={styles.gallery} data-gallery>
         <div className={styles.error}>
           <div className={styles.errorTitle}>Error loading data</div>
           <div className={styles.errorMessage}>{error}</div>
@@ -33,7 +33,7 @@ export const Gallery = () => {
   }
 
   return (
-    <div className={styles.gallery}>
+    <div className={styles.gallery} data-gallery>
       {/* Top Pane - Filters (hidden in lock mode) */}
       {!isLocked && (
         <div className={styles.topPane}>

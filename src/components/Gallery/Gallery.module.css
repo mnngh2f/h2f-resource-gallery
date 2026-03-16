@@ -1,6 +1,7 @@
 /* Gallery Container Styles */
 
 .gallery {
+  container-type: inline-size;
   display: flex;
   flex-direction: column;
   width: 100%;
