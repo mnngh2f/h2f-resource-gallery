@@ -10,6 +10,7 @@ export const CardCarousel = () => {
   const { filteredItems, carousel, goToPage, openModal } = useGallery();
   const { currentPage, totalPages, itemsPerPage } = carousel;
   const containerRef = useRef<HTMLDivElement>(null);
+  const isScrolling = useRef(false);
 
   // Group filtered items into pages
   const pages = useMemo(() => {
@@ -22,8 +23,12 @@ export const CardCarousel = () => {
     return result;
   }, [filteredItems, totalPages, itemsPerPage]);
 
-  // Sync scroll position with currentPage
+  // Sync scroll position with currentPage (only for programmatic navigation)
   useEffect(() => {
+    if (isScrolling.current) {
+      isScrolling.current = false;
+      return;
+    }
     const container = containerRef.current;
     if (!container) return;
 
@@ -48,6 +53,7 @@ export const CardCarousel = () => {
         const scrollLeft = container.scrollLeft;
         const newPage = Math.round(scrollLeft / pageWidth);
         if (newPage !== currentPage && newPage >= 0 && newPage < totalPages) {
+          isScrolling.current = true;
           goToPage(newPage);
         }
       }, 100);

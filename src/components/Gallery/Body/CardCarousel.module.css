@@ -3,10 +3,10 @@
 .carousel {
   width: 95%;
   overflow-x: auto;
-  overflow-y: scroll;
+  overflow-y: hidden;
   scroll-snap-type: x mandatory;
-  scroll-behavior: smooth;
   -webkit-overflow-scrolling: touch;
+  touch-action: pan-x pinch-zoom;
 
   /* Hide scrollbar */
   scrollbar-width: none;
