@@ -8,8 +8,12 @@ export const CONFIG = {
   // Dynamic grid configuration (container-responsive)
   GRID: {
     // Card dimensions scale with container: clamp(min, containerSize * scale, max)
-    CARD_WIDTH: { scale: 0.15, min: 60, max: 140 },
-    CARD_HEIGHT: { scale: 0.12, min: 50, max: 120 },
+    // Scale must be high enough that max kicks in early — otherwise
+    // columns ≈ containerWidth / (containerWidth * scale) stays constant.
+    // At scale 0.40, max=160 takes over above 400px, giving clean
+    // column transitions: 2 → 3 → 4 → 5 → 6 as container grows.
+    CARD_WIDTH: { scale: 0.40, min: 80, max: 160 },
+    CARD_HEIGHT: { scale: 0.30, min: 60, max: 140 },
     MAX_COLUMNS: 6,
     MAX_ROWS: 5,
     MIN_COLUMNS: 2,
