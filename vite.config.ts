@@ -5,5 +5,5 @@ import preact from '@preact/preset-vite'
 export default defineConfig({
   plugins: [preact()],
   // GitHub Pages deployment - set base to repository name
-  base: '/H2F-Repo/',
+  base: '/h2f-resource-gallery/',
 })
