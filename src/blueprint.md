@@ -10,7 +10,7 @@ A Preact + TypeScript web component that displays H2F (Holistic Health & Fitness
 
 | Item | Value |
 |------|-------|
-| **Repository** | https://github.com/mnngh2f/H2F-Repo |
+| **Repository** | https://github.com/mnngh2f/h2f-resource-gallery |
 | **Hosting** | GitHub Pages |
 | **Framework** | Preact + TypeScript + Vite |
 | **Data Source** | Google Sheets (Visualization API) |
@@ -186,7 +186,7 @@ A Preact + TypeScript web component that displays H2F (Holistic Health & Fitness
 
 ## URL Parameters (Embed)
 
-**Base URL:** `https://mnngh2f.github.io/H2F-Repo/`
+**Base URL:** `https://mnngh2f.github.io/h2f-resource-gallery/`
 
 | Param | Type | Example | Description |
 |-------|------|---------|-------------|
@@ -208,7 +208,7 @@ A Preact + TypeScript web component that displays H2F (Holistic Health & Fitness
 ```html
 <!-- Full interactive gallery -->
 <iframe 
-  src="https://mnngh2f.github.io/H2F-Repo/"
+  src="https://mnngh2f.github.io/h2f-resource-gallery/"
   width="100%"
   height="600"
   frameborder="0">
@@ -216,7 +216,7 @@ A Preact + TypeScript web component that displays H2F (Holistic Health & Fitness
 
 <!-- Pre-filtered, locked -->
 <iframe 
-  src="https://mnngh2f.github.io/H2F-Repo/?domain=Mental&source=H2F&lock=true"
+  src="https://mnngh2f.github.io/h2f-resource-gallery/?domain=Mental&source=H2F&lock=true"
   width="100%"
   height="600"
   frameborder="0">
