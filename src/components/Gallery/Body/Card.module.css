@@ -55,7 +55,7 @@
 }
 
 .bannerText {
-  margin-left: var(--spacing-sm);
+  margin-left: var(--spacing-lg);
   color: whitesmoke;
   font-weight: 600;
   font-size: var(--dyn-font-banner);
