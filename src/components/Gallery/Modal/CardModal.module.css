@@ -84,12 +84,11 @@
   }
 }
 
-/* Header */
 .header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: var(--spacing-md);
+  padding: var(--spacing-sm);
   border-bottom: 1px solid var(--color-border);
 }
 
@@ -132,14 +131,12 @@
   background: var(--color-border);
 }
 
-/* Content */
 .content {
   flex: 1;
   overflow-y: auto;
   padding: var(--spacing-lg);
 }
 
-/* Domain Banner */
 .domainBanner {
   display: inline-block;
   padding: var(--spacing-xs) var(--spacing-sm);
@@ -149,10 +146,8 @@
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.5px;
-  margin-bottom: var(--spacing-md);
 }
 
-/* Title */
 .title {
   font-size: var(--font-2xl);
   font-weight: 700;
@@ -161,11 +156,10 @@
   line-height: 1.3;
 }
 
-/* Meta Info */
 .meta {
   display: flex;
   flex-wrap: wrap;
-  gap: var(--spacing-md);
+  gap: var(--spacing-lg);
   margin-bottom: var(--spacing-lg);
   padding-bottom: var(--spacing-lg);
   border-bottom: 1px solid var(--color-border);
@@ -190,19 +184,17 @@
   font-weight: 500;
 }
 
-/* Description */
 .description {
   font-size: var(--font-base);
   color: var(--color-text-secondary);
   line-height: 1.7;
 }
 
-/* Features Tags */
 .features {
   display: flex;
   flex-wrap: wrap;
   gap: var(--spacing-sm);
-  margin-top: var(--spacing-lg);
+  margin-top: var(--spacing-md);
 }
 
 .featureTag {
@@ -211,4 +203,61 @@
   border-radius: var(--radius-full);
   font-size: var(--font-xs);
   color: var(--color-text-secondary);
+}
+
+@container (max-width: 600px) {
+  .title {
+    font-size: var(--font-md);
+    color: var(--color-text);
+    margin-bottom: var(--spacing-sm);
+  }
+
+  .domainBanner {
+    font-size: var(--font-xs);
+  }
+
+  .header {
+    padding: var(--spacing-sm);
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .meta {
+    gap: var(--spacing-lg);
+    margin-bottom: var(--spacing-sm);
+    padding-bottom: var(--spacing-sm);
+  }
+
+  .metaLabel {
+    font-size: var(--font-xs);
+    color: var(--color-text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  
+  .metaValue {
+    font-size: var(--font-xs);
+    color: var(--color-text);
+    font-weight: 500;
+  }
+
+  .description {
+    font-size: var(--font-sm);
+    color: var(--color-text-secondary);
+    line-height: 1.5;
+  }
+
+  .linkButton {
+    gap: var(--spacing-xs);
+    font-size: var(--font-xs);
+  }
+
+  .closeButton {
+    width: 30px;
+    height: 30px;
+    font-size: var(--font-md);
+  }
+
+  .content {
+    padding: var(--spacing-md);
+  }
 }

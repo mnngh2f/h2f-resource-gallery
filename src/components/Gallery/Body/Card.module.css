@@ -102,14 +102,14 @@
 .overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(to top, rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.6));
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.75));
   opacity: 0;
   display: none;
   padding: var(--spacing-md);
   color: white;
   z-index: var(--z-card-overlay);
 }
-
+/** Removed title **/
 .overlayTitle {
   font-size: var(--font-lg);
   font-weight: 600;
@@ -122,8 +122,8 @@
   display: -webkit-box;
   -webkit-line-clamp: 4;
   -webkit-box-orient: vertical;
-  overflow: hidden;
-  opacity: 0.9;
+  overflow: scroll;
+  opacity: 1;
 }
 
 /* Large container: Show overlay on hover */
@@ -154,7 +154,7 @@
   .overlay {
     display: flex;
     flex-direction: column;
-    justify-content: flex-end;
+    justify-content: center;
   }
 
   .card:hover .overlay {

@@ -72,6 +72,7 @@ export const CardModal = () => {
       <div className={`${styles.modal} ${isClosing ? styles.modalClosing : ''}`}>
         {/* Header */}
         <div className={styles.header}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
           <button
             className={styles.closeButton}
             onClick={handleClose}
@@ -79,7 +80,14 @@ export const CardModal = () => {
           >
             ×
           </button>
-
+          {/* Domain Badge */}
+          <span
+            className={styles.domainBanner}
+            style={{ backgroundColor: colors.primary }}
+          >
+            {selectedItem.domain}
+          </span>
+          </div>
           {selectedItem.link && (
             <button className={styles.linkButton} onClick={handleOpenLink}>
               Open Resource →
@@ -89,13 +97,7 @@ export const CardModal = () => {
 
         {/* Content */}
         <div className={styles.content}>
-          {/* Domain Badge */}
-          <span
-            className={styles.domainBanner}
-            style={{ backgroundColor: colors.primary }}
-          >
-            {selectedItem.domain}
-          </span>
+          
 
           {/* Title */}
           <h2 id="modal-title" className={styles.title} style={{ color: colors.secondary }}>

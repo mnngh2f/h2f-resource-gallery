@@ -85,7 +85,6 @@ export const Card = ({ item, onClick }: CardProps) => {
 
       {/* Hover Overlay (Desktop only via CSS) */}
       <div className={styles.overlay}>
-        <div className={styles.overlayTitle}>{item.title}</div>
         {item.description && (
           <p className={styles.overlayDescription}>{item.description}</p>
         )}
