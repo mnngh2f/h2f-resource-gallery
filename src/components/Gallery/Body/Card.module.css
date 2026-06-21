@@ -49,8 +49,8 @@
 .bannerIcon {
   margin-left: auto;
   margin-right: var(--dyn-banner-height);
-  width: 1.2em;
-  height: 1.2em;
+  width: 1.0em;
+  height: 1.0em;
   z-index: var(--z-banner-text);
 }
 
@@ -118,12 +118,17 @@
 
 .overlayDescription {
   font-size: var(--font-sm);
-  line-height: 1.5;
+  line-height: 1.1;
   display: -webkit-box;
-  -webkit-line-clamp: 4;
+  -webkit-line-clamp: 8;
   -webkit-box-orient: vertical;
   overflow: scroll;
   opacity: 1;
+  scrollbar-width: none; /* Firefox */
+}
+
+.overlayDescription::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Edge */
 }
 
 /* Large container: Show overlay on hover */
